@@ -1,4 +1,3 @@
-# Scrapy-First-Spider
-book.toScrapy
+# Scrapy-Spider
 Python Scrapy 
-1000 Books details
+
