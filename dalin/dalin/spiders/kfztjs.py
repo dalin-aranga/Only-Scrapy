@@ -2,6 +2,7 @@ import scrapy
 import json
 
 
+#javascript web site scrape
 class Dalin(scrapy.Spider):
     name = 'kfztjs'
     custom_settings = {
@@ -21,13 +22,12 @@ class Dalin(scrapy.Spider):
         val_num = []
         namelist1 =[]
         try:
-            i=1
-            while True:
-                a = response.css('#typeSelectionField_1').xpath('.//*[name()="option"]').extract()[i].split('"')[1]
-                name1 = response.xpath('//select[@id="typeSelectionField_1"]/optgroup/option/text()').extract_first()
+            first_path = response.xpath('//select[@id="typeSelectionField_1"]/optgroup/option')
+            for d in dd:
+                a = d.xpath('.//@value').extract_first()
+                name1 = d.xpath('.//text()').extract_first()
                 namelist1.append(name1)
                 val_num.append(a)
-                i=i+1
 
         except:
             pass
